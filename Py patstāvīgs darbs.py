@@ -32,9 +32,44 @@ Label(ws, text="Recovery", borderwidth=3, padx=5, pady=10).pack(padx=5, pady=10)
 # Run the main event loop
 ws.mainloop()
 
+
 TotalSize = [50000, 150000, 5000, 500000, 16000, 10000, 80000, 200000, 100000, 2000]
 print(sum(TotalSize),"MB")
 
-numbers = [1, 2, 3, 4, 5]
-total = sum(numbers)
-print(f"Used%: {total}%")
+# 3. uzdevums
+for entry in partitions:
+  parts = entry.split (";")
+  lable = parts[0]
+  used = int(parts[3])
+  if used >= 90:
+    print(f"UZMANĪBU:[Label] disks ir pilns!")
+
+# 4. uzdevums
+for entry in partitions:
+  parts = entry.split(";")
+  lable = parts[0]
+  size_gb = int(parts[2]) / 1024
+  print(f"[lable]: {size_gb:.2f} GB")
+
+# 5. uzdevums
+mount_input = input("Ievadiet montējuma punktu")
+found = False
+for entry in partitions:
+   parts = entry.split(";")
+  if parts[1] == mount_input:
+    print(parts[0])
+    found = True
+    break
+if not found:
+  print("Nav atrasts")
+
+#6. uzdevums
+def calculate_used_mb(partitions_list):
+  parts = entry.split(";")
+  lable = parts[0]
+  total_size = int(parts[2])
+  used_percent = int (parts[3])
+  used-mb - int(total_size * (used_percent / 100))
+  result.append({"Label": label, "UsedMB": used_mb})
+return result
+
